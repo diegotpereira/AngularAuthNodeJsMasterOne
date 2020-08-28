@@ -1,0 +1,49 @@
+<h2>This is Admin's page</h2>
+<div class="container">
+  <button type="submit" class="btn btn-primary" (click)="getAllUsers()" style="margin-left: 2px;"
+    *ngIf='!updateUserDiv'>{{toggleText}}</button>
+</div>
+<div class="container" *ngIf='flag'>
+  <h3>User Data</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let user of allUsers">
+      <td>{{user.reg_id}}</td>
+      <td>{{user.user_name}}</td>
+      <td><button type="submit" class="btn btn-primary" (click)="deleteUser(user.reg_id)"
+          style="margin-left: 2px;">delete user</button> </td>
+      <td><button type="submit" class="btn btn-primary" (click)="updateUser(user.reg_id)"
+          style="margin-left: 2px;">Update User</button></td>
+      <td><button type="submit" class="btn btn-primary" (click)="addUser()" style="margin-left: 2px;">Add user</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="container" *ngIf='updateUserDiv'>
+  <h3>User Data</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PASSWORD</th>
+        <th>REPASSWORD</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let user of allUsers">
+      <td><input type="text" value={{user.reg_id}} disabled #regId /></td>
+      <td><input type="text" value={{user.user_name}} #userName /></td>
+      <td><input type="text" value={{user.password}} #userPassword /></td>
+      <td><input type="text" value={{user.repassword}} #userRePassword /></td>
+      <td><button type="submit" class="btn btn-primary"
+          (click)="submit(regId.value,userName.value,userPassword.value,userRePassword.value)"
+          style="margin-left: 2px;">Submit</button></td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<head>
+    <!-- <script src="app.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container" style="width: 300px;margin-left: 10em;border: 1px solid blue;margin-top: 5em;">
+        <div class="form-group">
+            <!--needed for optimum spacing-->
+            <!--helps improve accessibility for people using screen readers-->
+            <h1>Registration Form</h1>
+            <form role="form" action="http://127.0.0.1:8000/register" method="GET">
+                <label>email</label>
+                <input class="form-control" type="email" name="emailBox" ng-model="emailBox" />
+                <br />
+                <label>password</label>
+                <input class="form-control" type="password" name="passwordBox" ng-model="passwordBox">
+                <br />
+                <label>rePassword</label>
+                <input class="form-control" type="password" name="rePasswordBox" ng-model="rePasswordBox">
+                <br />
+                <button type="submit" class="btn btn-default" >Register</button>
+                <button type="cancel" class="btn btn-danger">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
